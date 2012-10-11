@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Newtonsoft.Json.Linq;
-using VVVV.PluginInterfaces.V2;
-
 using VVVV.Core.Logging;
+using VVVV.PluginInterfaces.V2;
 #endregion usings
 
 namespace VVVV.Nodes
 {
 	#region PluginInfo
-	[PluginInfo(Name = "Parse", Category = "JSON", Help = "Basic template with one value in/out", Tags = "")]
+	[PluginInfo(Name = "Parse", Category = "JSON", Help = "Parse JSON using JSONPath Query", Tags = "json")]
 	#endregion PluginInfo
-	public class JSONParseNode : IPluginEvaluate
+	public class ParseNode : IPluginEvaluate
 	{
 		#region fields & pins
 		[Input("JSON")]

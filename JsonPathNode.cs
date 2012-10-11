@@ -12,7 +12,7 @@ namespace VVVV.Nodes
 	#region PluginInfo
 	[PluginInfo(Name = "JSONPath", Category = "JSON", Help = "Get values by JSONPath query", Tags = "")]
 	#endregion PluginInfo
-	public class JsonPathParserNode : IPluginEvaluate
+	public class JsonPathNode : IPluginEvaluate
 	{
 		[Input("Objects")] 
 		private IDiffSpread<JObject> FJObjectIn;

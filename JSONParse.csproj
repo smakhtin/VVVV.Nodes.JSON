@@ -52,9 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonNetValueSystem.cs" />
-    <Compile Include="JSONParseNode.cs" />
+    <Compile Include="ParseNode.cs" />
     <Compile Include="jsonpath-0.5.1.cs" />
-    <Compile Include="JsonPathParserNode.cs" />
+    <Compile Include="JsonPathNode.cs" />
+    <Compile Include="CreateNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
