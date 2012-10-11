@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6A0AFB1F-8219-4A08-85F7-B7F19B66AC16}</ProjectGuid>
+    <Configuration>Debug</Configuration>
+    <Platform>x86</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>VVVV.Nodes</RootNamespace>
+    <AssemblyName>JSONParse</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ReferencePath>..\..\..\..\..\Program Files (x86)\vvvv_45beta27.1\lib\core\</ReferencePath>
+    <ReferencePath>..\..\..\..\..\Program Files (x86)\vvvv_45beta27.1\bin\managed\</ReferencePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\SlimDX.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition.Codeplex">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="VVVV.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.PluginInterfaces">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.PluginInterfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.Utils">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Utils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.Utils3rdParty">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Utils3rdParty.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JsonNetValueSystem.cs" />
+    <Compile Include="JSONParseNode.cs" />
+    <Compile Include="jsonpath-0.5.1.cs" />
+    <Compile Include="JsonPathParserNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

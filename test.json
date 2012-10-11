@@ -1,0 +1,13 @@
+{
+   "firstName": "Test",
+   "lastName": "Test2",
+   "address": {
+       "streetAddress": "asdasdasdasdasd",
+       "city": "ssssssssss",
+       "postalCode": 101101
+   },
+   "phoneNumbers": [
+       "812 123-1234",
+       "916 123-4567"
+   ]
+}
