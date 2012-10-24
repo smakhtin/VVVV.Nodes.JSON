@@ -92,16 +92,18 @@ namespace VVVV.Nodes
 		private void WriteCastedString(string input)
 		{
 			double result;
-			if(Double.TryParse(input, out result)) jsonWriter.WriteValue(result);
+			if(Double.TryParse(input, out result))
+			{
+				jsonWriter.WriteValue(result);
+			}
 			else 
 			{
-				object obj = JsonConvert.DeserializeObject(input);
-				
-				if ( obj != null) 
+				try
 				{
+					object obj = JsonConvert.DeserializeObject(input);
 					jsonWriter.WriteRawValue(input);
 				}
-				else
+				catch
 				{
 					jsonWriter.WriteValue(input);
 				}
