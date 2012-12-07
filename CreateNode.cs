@@ -1,21 +1,16 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.Dynamic;
 using System.IO;
 using System.Text;
-using System.ComponentModel;
 using Newtonsoft.Json;
 using VVVV.PluginInterfaces.V2;
-using VVVV.Utils.Streams;
-using VVVV.Utils.VColor;
-using VVVV.Utils.VMath;
 
 namespace VVVV.Nodes
 {
 	[PluginInfo(Name = "Create", Category = "JSON", Help = "Create JSON object from values spreads", Tags = "json")]
 	public class CreateNode : IPluginEvaluate, IPartImportsSatisfiedNotification
 	{
-		Spread<IIOContainer<ISpread <string>>> FValueIn = new Spread<IIOContainer<ISpread<string>>>();
+	    readonly Spread<IIOContainer<ISpread <string>>> FValueIn = new Spread<IIOContainer<ISpread<string>>>();
 		
 		[Config("Property Names", DefaultString = "VVVV Rocks", IsSingle = true)]
 		IDiffSpread<string> FPropertyNamesIn;
@@ -24,7 +19,7 @@ namespace VVVV.Nodes
 		ISpread<string> FOutput;
 		
 		string[] FPropertyNames = new string[0];
-		JsonWriter jsonWriter;
+		JsonWriter FJsonWriter;
 		
 		[Import]
 		IIOFactory FIOFactory;
@@ -41,7 +36,7 @@ namespace VVVV.Nodes
 			
 			FValueIn.ResizeAndDispose(
 				spreadCount, 
-				(i) =>
+				i =>
 				{
 					InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
 					return FIOFactory.CreateIOContainer<ISpread<string>>(ioAttribute);
@@ -52,31 +47,30 @@ namespace VVVV.Nodes
 		public void Evaluate(int spreadSize)
 		{
 			int propertiesCount = FPropertyNames.Length;
-			dynamic obj = new ExpandoObject();
 			
 			StringBuilder stringBuilder = new StringBuilder();
 			StringWriter stringWriter = new StringWriter(stringBuilder);
 			
-			jsonWriter = new JsonTextWriter(stringWriter);
+			FJsonWriter = new JsonTextWriter(stringWriter);
 			//JsonWriter.Formatting(Formatting.Indented);
-			jsonWriter.WriteStartObject();
+			FJsonWriter.WriteStartObject();
 			
 			for (int i = 0; i < propertiesCount; i++) 
 			{
-				jsonWriter.WritePropertyName(FPropertyNames[i]);
+				FJsonWriter.WritePropertyName(FPropertyNames[i]);
 				ISpread<string> values = FValueIn[i].IOObject;
 				int valuesCount = values.SliceCount;
 				
 				if(valuesCount > 1)
 				{
-					jsonWriter.WriteStartArray();
+					FJsonWriter.WriteStartArray();
 					
 					for (int j = 0; j < valuesCount; j++) 
 					{
 						WriteCastedString(values[i]);
 					}
 					
-					jsonWriter.WriteEndArray();
+					FJsonWriter.WriteEndArray();
 				}
 				else
 				{
@@ -84,7 +78,7 @@ namespace VVVV.Nodes
 				}
 			}
 			
-			jsonWriter.WriteEndObject();
+			FJsonWriter.WriteEndObject();
 			
 			FOutput[0] = stringBuilder.ToString();
 		}
@@ -94,18 +88,18 @@ namespace VVVV.Nodes
 			double result;
 			if(Double.TryParse(input, out result))
 			{
-				jsonWriter.WriteValue(result);
+				FJsonWriter.WriteValue(result);
 			}
-			else 
+			else
 			{
 				try
 				{
-					object obj = JsonConvert.DeserializeObject(input);
-					jsonWriter.WriteRawValue(input);
+					JsonConvert.DeserializeObject(input);
+					FJsonWriter.WriteRawValue(input);
 				}
 				catch
 				{
-					jsonWriter.WriteValue(input);
+					FJsonWriter.WriteValue(input);
 				}
 			}
 		}

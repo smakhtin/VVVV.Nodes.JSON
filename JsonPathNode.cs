@@ -14,16 +14,16 @@ namespace VVVV.Nodes
 	#endregion PluginInfo
 	public class JsonPathNode : IPluginEvaluate
 	{
-		[Input("Objects")] 
+		[Input("Objects")]
 		private IDiffSpread<JObject> FJObjectIn;
 
-		[Input("JSONPath Query")] 
+		[Input("JSONPath Query")]
 		private IDiffSpread<string> FQueryIn;
-		
-		[Input("Parse", IsBang = true, IsSingle = true)] 
+
+		[Input("Parse", IsBang = true, IsSingle = true)]
 		private ISpread<bool> FParseIn;
-		
-		[Output("Output")] 
+
+		[Output("Output")]
 		private ISpread<ISpread<string>> FDataOut;
 
 		[Import]
@@ -36,7 +36,7 @@ namespace VVVV.Nodes
 		{
 			FDataOut.SliceCount = spreadMax;
 
-			if(FParseIn[0] || FQueryIn.IsChanged)
+			if (FParseIn[0] || FQueryIn.IsChanged)
 			{
 				FData.Clear();
 				for (int i = 0; i < spreadMax; i++)
@@ -55,14 +55,12 @@ namespace VVVV.Nodes
 					}
 					catch (Exception ex)
 					{
-						//FLogger.Log(LogType.Error, "Query is wrong at slice " + i);
-						
 						FLogger.Log(LogType.Error, ex.ToString());
 					}
 				}
 			}
 
-			if(FData.Count == 0) return;
+			if (FData.Count == 0) return;
 
 			for (int i = 0; i < spreadMax; i++)
 			{

@@ -1,10 +1,5 @@
-#region usings
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using Newtonsoft.Json.Linq;
-using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
-#endregion usings
 
 namespace VVVV.Nodes
 {
@@ -13,45 +8,36 @@ namespace VVVV.Nodes
 	#endregion PluginInfo
 	public class ParseNode : IPluginEvaluate
 	{
-		#region fields & pins
 		[Input("JSON")]
-		IDiffSpread<string> FJsonIn;
+		private IDiffSpread<string> FJsonIn;
 
 		[Input("Reload", IsSingle = true, IsBang = true)] 
 		private ISpread<bool> FReload;
 
 		[Output("Output")]
-		ISpread<JObject> FObjectsOut;
+		private ISpread<JObject> FObjectsOut;
 
-		List<JObject> FObjects = new List<JObject>();
-
-		[Import]
-		ILogger FLogger;
-		#endregion fields & pins
+		[Output("Valid")] 
+		private ISpread<bool> FValidOut;
 
 		public void Evaluate(int spreadMax)
 		{
 			FObjectsOut.SliceCount = spreadMax;
 
-			if (FJsonIn.IsChanged || FReload[0])
+			if (!FJsonIn.IsChanged && !FReload[0]) return;
+			
+			for (int i = 0; i < spreadMax; i++)
 			{
-				FObjects.Clear();
-
-				for (int i = 0; i < spreadMax; i++)
+				try
 				{
-					try
-					{
-						JObject jObject = JObject.Parse(FJsonIn[i]);
-						if (jObject != null) FObjects.Add(jObject);
-					}
-					catch
-					{
-						FLogger.Log(LogType.Error, "Can't parse JSON at slice " + i);
-					}
+					FObjectsOut[i] = JObject.Parse(FJsonIn[i]);
+					FValidOut[i] = true;
+				}
+				catch
+				{
+					FValidOut[i] = false;
 				}
 			}
-
-			FObjectsOut.AssignFrom(FObjects);
 		}
 	}
 }
