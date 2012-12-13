@@ -19,6 +19,7 @@
     <ReferencePath>..\..\..\..\..\Program Files (x86)\vvvv_45beta27.1\bin\managed\</ReferencePath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>dll\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -28,6 +29,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
     <Reference Include="VVVV.Core">
       <HintPath>..\..\..\..\..\vvvv\vvvv_45beta28.1\lib\core\VVVV.Core.dll</HintPath>
       <Private>False</Private>

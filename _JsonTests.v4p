@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\VVVV.Nodes.JSON\_JsonTests.v4p" systemname="_JsonTests" filename="C:\Users\Vadim\Dropbox\VVVV\plugins\JSONParse\_JsonTests.v4p">
-   <BOUNDS type="Window" left="22890" top="7800" width="15660" height="10650">
+   <PATCH nodename="C:\Users\algar_000\Documents\GitRepos\VVVV.Nodes.JSON\_JsonTests.v4p" systemname="_JsonTests" filename="C:\Users\Vadim\Dropbox\VVVV\plugins\JSONParse\_JsonTests.v4p">
+   <BOUNDS type="Window" left="3585" top="4785" width="18420" height="10560">
    </BOUNDS>
    <NODE systemname="Parse (JSON)" filename="bin\Debug\JSONParse.dll" nodename="Parse (JSON)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="765" top="7755" width="100" height="100">
@@ -13,9 +13,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="2">
-   <BOUNDS type="Node" left="2145" top="7515" width="100" height="100">
+   <BOUNDS type="Node" left="4245" top="645" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2145" top="7515" width="2400" height="1800">
+   <BOUNDS type="Box" left="4245" top="645" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="20655" top="6435" width="6240" height="5085">
    </BOUNDS>
@@ -25,9 +25,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="1305" top="6390" width="0" height="0">
+   <BOUNDS type="Node" left="1275" top="6975" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="1305" top="6390" width="480" height="480">
+   <BOUNDS type="Box" left="1275" top="6975" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -44,14 +44,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="780" top="8625" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="780" top="8625" width="1545" height="495">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="4" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="Reader (File)" nodename="Reader (File)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="765" top="5970" width="100" height="100">
    </BOUNDS>
@@ -101,13 +93,15 @@
    </PIN>
    <PIN pinname="Parse" slicecount="1" visible="1" values="0">
    </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Output" dstnodeid="9" dstpinname="Objects">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="10" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2895" top="11580" width="0" height="0">
+   <BOUNDS type="Node" left="2850" top="9495" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2895" top="11580" width="2820" height="7305">
+   <BOUNDS type="Box" left="2850" top="9495" width="2820" height="7305">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -117,13 +111,13 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
+   <PIN pinname="Input String" visible="1" slicecount="15" values="|You know what i really want from you?|,|RT @DewaCintaa: Aku menangis karna terluka, aku merindukan karna aku menyayangi..|,|Difference between a good and a bad #meeting ? &lf;Bad meeting =Blabla + Beverages&lf;Good meeting =Blabla + Beverages + COOKIES&lf;;)|,|Ya un Gars dans Ma TL Cst Un Torro et un Mytho ! Crari &quot; Elle je la calcule plus blabla&quot; Alors qu&apos;il la Slurp Au max Sur Insta ! M D R.|,|RT @hartaaaa: Bersabarlah Allah selalu memberikan yang terbaik buat umatnya.|,|@ThreeUKSupport I haven&apos;t been able to send any texts for 2 days now|,|hahaha RT @DanielPujiNS Maaf kak RT @cherchres: Mau jadi jagoan? Pake tawuran? Puas kalo anak org udah meninggal? Itu yg dicari? &quot;|,|linsingers frage blieb eher unbeantwortet: &quot;herr (j) proll, war ihnen nicht selbst manchmal langweilig bei ihrem blabla in interviews?&quot; #omt|,|RT @ayuyuphan: 0o . npe di hapus ? bisa la, gampang sangat tu soal . hehe RT&quot;@vhia_blabla: @ayuyuphan ,ak apus ..mk na br 2 Hehe:) td is ...|,|Spit een real 16bar fuck ik doe dat homie laat dat blabla dats geen rap jullie verkankeren rap !!|,|Ngeri gue pas ketemu dia, terus dia gandeng cewek terus bilang &quot;Eh ini cewek gue,namanya blabla&quot; :&apos;). Taampun ngebayanginnya aja nyesek.|,|@Pervy_ASNana lupa, pokoknya bagian pertama kan jiyeon nyanyi. trus tar ada part2, dia juga lol yg ada chakamman.... blabla~ sexy love|,|parabensssss @igor_mende bobao, tudo de bom, muitassss felicidades, muita paz, gatinhas e blabla .. hehe s2|,|je vais marcher genre 40minutes sous la flotte merci Le lycee et maman ,pour deux heures de blabla sur la securite des personne|,|@AliouneBadara22 Pire que du blabla|" encoded="0">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="9" srcpinname="Output" dstnodeid="10" dstpinname="Input String">
-   </LINK>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="11">
-   <BOUNDS type="Node" left="3255" top="8070" width="100" height="100">
+   <BOUNDS type="Node" left="3825" top="7500" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3255" top="8070" width="2400" height="495">
+   <BOUNDS type="Box" left="3825" top="7500" width="2400" height="495">
    </BOUNDS>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -142,42 +136,18 @@
    </NODE>
    <LINK srcnodeid="6" srcpinname="Content" dstnodeid="12" dstpinname="Input String">
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="13">
-   <BOUNDS type="Node" left="5025" top="7005" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="5025" top="7005" width="480" height="480">
-   </BOUNDS>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Parse">
-   </LINK>
-   <NODE systemname="Cartesian (2d)" nodename="Cartesian (2d)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="3885" top="10200" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="Polar (3d)" nodename="Polar (3d)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="4170" top="9225" width="100" height="100">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Create (JSON)" filename="bin\Debug\JSONParse.dll" nodename="Create (JSON)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="1005" top="1650" width="100" height="100">
+   <BOUNDS type="Node" left="1005" top="1650" width="1260" height="270">
    </BOUNDS>
    <PIN pinname="VVVV Value" visible="1">
    </PIN>
+   <PIN pinname="Rocks Value" slicecount="1" encoded="0" values="123">
+   </PIN>
    </NODE>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="20">
-   <BOUNDS type="Node" left="990" top="705" width="100" height="100">
+   <BOUNDS type="Node" left="990" top="1020" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="990" top="705" width="795" height="240">
+   <BOUNDS type="Box" left="990" top="1020" width="810" height="300">
    </BOUNDS>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -199,5 +169,61 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="19" srcpinname="Output" dstnodeid="21" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="AddProperty (JSON)" filename="bin\Debug\JSONParse.dll" nodename="AddProperty (JSON)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="6525" top="1500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="VVVV Value" slicecount="1" encoded="0" values="123">
+   </PIN>
+   <PIN pinname="Rocks Value" slicecount="1" encoded="0" values="1111">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="JSONPath (JSON)" filename="bin\Debug\JSONParse.dll" nodename="JSONPath (JSON)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="6525" top="2460" width="1845" height="270">
+   </BOUNDS>
+   <PIN pinname="Objects" visible="1">
+   </PIN>
+   <PIN pinname="JSONPath Query" visible="1" slicecount="1" encoded="0" values="VVVV">
+   </PIN>
+   <PIN pinname="Parse" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="23" dstpinname="Objects">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6510" top="3135" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6510" top="3135" width="1890" height="1365">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output" dstnodeid="24" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="25">
+   <BOUNDS type="Node" left="8310" top="1125" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8310" top="1125" width="990" height="870">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Input String" slicecount="2" encoded="0" values="VVVV,Rocks">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Output String" dstnodeid="23" dstpinname="JSONPath Query">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Output" dstnodeid="10" dstpinname="Input String">
    </LINK>
    </PATCH>

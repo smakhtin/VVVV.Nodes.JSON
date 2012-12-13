@@ -15,13 +15,10 @@ namespace VVVV.Nodes
 	public class JsonPathNode : IPluginEvaluate
 	{
 		[Input("Objects")]
-		private IDiffSpread<JObject> FJObjectIn;
+		private ISpread<JObject> FJObjectIn;
 
 		[Input("JSONPath Query")]
-		private IDiffSpread<string> FQueryIn;
-
-		[Input("Parse", IsBang = true, IsSingle = true)]
-		private ISpread<bool> FParseIn;
+		private ISpread<string> FQueryIn;
 
 		[Output("Output")]
 		private ISpread<ISpread<string>> FDataOut;
@@ -35,28 +32,25 @@ namespace VVVV.Nodes
 		public void Evaluate(int spreadMax)
 		{
 			FDataOut.SliceCount = spreadMax;
-
-			if (FParseIn[0] || FQueryIn.IsChanged)
+			
+			FData.Clear();
+			for (int i = 0; i < spreadMax; i++)
 			{
-				FData.Clear();
-				for (int i = 0; i < spreadMax; i++)
+				try
 				{
-					try
-					{
-						var values = FParser.SelectNodes(FJObjectIn[i], FQueryIn[i]).Select(node => node.Value);
-						List<Object> list = values.ToList();
+					var values = FParser.SelectNodes(FJObjectIn[i], FQueryIn[i]).Select(node => node.Value);
+					List<Object> list = values.ToList();
 
-						FData.Add(new List<string>());
+					FData.Add(new List<string>());
 
-						for (int j = 0; j < values.Count(); j++)
-						{
-							FData[i].Add(list[j].ToString());
-						}
-					}
-					catch (Exception ex)
+					for (int j = 0; j < values.Count(); j++)
 					{
-						FLogger.Log(LogType.Error, ex.ToString());
+						FData[i].Add(list[j].ToString());
 					}
+				}
+				catch (Exception ex)
+				{
+					FLogger.Log(LogType.Error, ex.ToString());
 				}
 			}
 

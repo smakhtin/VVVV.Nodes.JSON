@@ -33,23 +33,25 @@ namespace VVVV.Nodes
 			FPropertyNames = FPropertyNamesIn[0].Split(' ');
 			int spreadCount = FPropertyNames.Length;
 
-			FValueIn.ResizeAndDispose(
-				spreadCount,
-				i =>
-				{
-					InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
-					return FIOFactory.CreateIOContainer<ISpread<ISpread<string>>>(ioAttribute);
-				}
-			);
+			FValueIn.ResizeAndDispose(0, Factory);
+			FValueIn.ResizeAndDispose(spreadCount, Factory);
+		}
+
+		private IIOContainer<ISpread<ISpread<string>>> Factory(int i)
+		{
+			InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
+			return FIOFactory.CreateIOContainer<ISpread<ISpread<string>>>(ioAttribute);
 		}
 
 		public void Evaluate(int spreadMax)
 		{
 			int propertiesCount = FPropertyNames.Length;
 
+			//if (!FValueIn.IsChanged && !FPropertyNamesIn.IsChanged) return;
+			
 			for (int i = 0; i < spreadMax; i++)
 			{
-				var jObject = (dynamic) FJObjectIn[i] ?? new JObject();
+				var jObject = (dynamic)FJObjectIn[i] ?? new JObject();
 
 				for (int j = 0; j < propertiesCount; j++)
 				{
@@ -58,14 +60,38 @@ namespace VVVV.Nodes
 					ISpread<ISpread<string>> propertyValues = FValueIn[j].IOObject;
 					int valuesCount = propertyValues[i].SliceCount;
 
+					var firstValue = propertyValues[i][0];
+					double castedValue;
+
+					bool isStrings = !double.TryParse(firstValue, out castedValue);
+
 					if (valuesCount > 1)
 					{
 						jObject[propertyName] = new JArray();
-						jObject[propertyName] = propertyValues[i];
+
+						if (isStrings)
+						{
+							jObject[propertyName] = propertyValues[i];
+						}
+						else
+						{
+							double[] doublesArray = new double[valuesCount];
+
+							for (int k = 0; k < valuesCount; k++)
+							{
+								double value;
+								double.TryParse(propertyValues[i][k], out value);
+
+								doublesArray[k] = value;
+							}
+
+							jObject[propertyName] = doublesArray;
+						}
 					}
 					else
 					{
-						jObject[propertyName] = propertyValues[i][0];
+						if (isStrings) jObject[propertyName] = firstValue;
+						else jObject[propertyName] = castedValue;
 					}
 				}
 

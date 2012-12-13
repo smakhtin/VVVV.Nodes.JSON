@@ -33,15 +33,15 @@ namespace VVVV.Nodes
 		{
 			FPropertyNames = FPropertyNamesIn[0].Split(' ');
 			int spreadCount = FPropertyNames.Length;
-			
-			FValueIn.ResizeAndDispose(
-				spreadCount, 
-				i =>
-				{
-					InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
-					return FIOFactory.CreateIOContainer<ISpread<string>>(ioAttribute);
-				}
-			);
+
+			FValueIn.ResizeAndDispose(0, Factory);
+			FValueIn.ResizeAndDispose(spreadCount, Factory);
+		}
+
+		private IIOContainer<ISpread<string>> Factory(int i)
+		{
+			InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
+			return FIOFactory.CreateIOContainer<ISpread<string>>(ioAttribute);
 		}
 		
 		public void Evaluate(int spreadSize)
