@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Composition;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
@@ -8,43 +7,14 @@ using VVVV.PluginInterfaces.V2;
 namespace VVVV.Nodes
 {
 	[PluginInfo(Name = "Create", Category = "JSON", Help = "Create JSON object from values spreads", Tags = "json")]
-	public class CreateNode : IPluginEvaluate, IPartImportsSatisfiedNotification
+	public class CreateNode : DynamicPinNodeBase<ISpread<String>>
 	{
-	    readonly Spread<IIOContainer<ISpread <string>>> FValueIn = new Spread<IIOContainer<ISpread<string>>>();
-		
-		[Config("Property Names", DefaultString = "VVVV Rocks", IsSingle = true)]
-		IDiffSpread<string> FPropertyNamesIn;
-		
 		[Output("Output")]
 		ISpread<string> FOutput;
 		
-		string[] FPropertyNames = new string[0];
 		JsonWriter FJsonWriter;
 		
-		[Import]
-		IIOFactory FIOFactory;
-		
-		public void OnImportsSatisfied()
-		{
-			FPropertyNamesIn.Changed += PropertyNamesInChanged;
-		}
-		
-		private void PropertyNamesInChanged(IDiffSpread<string> sender)
-		{
-			FPropertyNames = FPropertyNamesIn[0].Split(' ');
-			int spreadCount = FPropertyNames.Length;
-
-			FValueIn.ResizeAndDispose(0, Factory);
-			FValueIn.ResizeAndDispose(spreadCount, Factory);
-		}
-
-		private IIOContainer<ISpread<string>> Factory(int i)
-		{
-			InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
-			return FIOFactory.CreateIOContainer<ISpread<string>>(ioAttribute);
-		}
-		
-		public void Evaluate(int spreadSize)
+		public override void Evaluate(int spreadSize)
 		{
 			int propertiesCount = FPropertyNames.Length;
 			
@@ -58,7 +28,7 @@ namespace VVVV.Nodes
 			for (int i = 0; i < propertiesCount; i++) 
 			{
 				FJsonWriter.WritePropertyName(FPropertyNames[i]);
-				ISpread<string> values = FValueIn[i].IOObject;
+				ISpread<string> values = ValueIn[i].IOObject;
 				int valuesCount = values.SliceCount;
 				
 				if(valuesCount > 1)

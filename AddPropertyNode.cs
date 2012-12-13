@@ -1,63 +1,29 @@
-﻿using System.ComponentModel.Composition;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using VVVV.PluginInterfaces.V2;
 
 namespace VVVV.Nodes
 {
 	[PluginInfo(Name = "AddProperty", Category = "JSON", Help = "Add Property to JSON object", Tags = "json")]
-	public class AddPropertyNode : IPluginEvaluate, IPartImportsSatisfiedNotification
+	public class AddPropertyNode : DynamicPinNodeBase<ISpread<ISpread<string>>>
 	{
 		[Input("JObject")]
 		private ISpread<JObject> FJObjectIn;
 
-		readonly Spread<IIOContainer<ISpread<ISpread<string>>>> FValueIn = new Spread<IIOContainer<ISpread<ISpread<string>>>>();
-
-		[Config("Property Names", DefaultString = "VVVV Rocks", IsSingle = true)]
-		IDiffSpread<string> FPropertyNamesIn;
-
 		[Output("Output")]
 		ISpread<JObject> FOutput;
 
-		string[] FPropertyNames = new string[0];
-		
-		[Import]
-		IIOFactory FIOFactory;
-
-		public void OnImportsSatisfied()
-		{
-			FPropertyNamesIn.Changed += PropertyNamesInChanged;
-		}
-
-		private void PropertyNamesInChanged(IDiffSpread<string> sender)
-		{
-			FPropertyNames = FPropertyNamesIn[0].Split(' ');
-			int spreadCount = FPropertyNames.Length;
-
-			FValueIn.ResizeAndDispose(0, Factory);
-			FValueIn.ResizeAndDispose(spreadCount, Factory);
-		}
-
-		private IIOContainer<ISpread<ISpread<string>>> Factory(int i)
-		{
-			InputAttribute ioAttribute = new InputAttribute(FPropertyNames[i] + " Value");
-			return FIOFactory.CreateIOContainer<ISpread<ISpread<string>>>(ioAttribute);
-		}
-
-		public void Evaluate(int spreadMax)
+		public override void Evaluate(int spreadMax)
 		{
 			int propertiesCount = FPropertyNames.Length;
 
-			//if (!FValueIn.IsChanged && !FPropertyNamesIn.IsChanged) return;
-			
 			for (int i = 0; i < spreadMax; i++)
 			{
 				var jObject = (dynamic)FJObjectIn[i] ?? new JObject();
 
 				for (int j = 0; j < propertiesCount; j++)
 				{
-
 					var propertyName = FPropertyNames[j];
-					ISpread<ISpread<string>> propertyValues = FValueIn[j].IOObject;
+					ISpread<ISpread<string>> propertyValues = ValueIn[j].IOObject;
 					int valuesCount = propertyValues[i].SliceCount;
 
 					var firstValue = propertyValues[i][0];

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPropertyNode.cs" />
+    <Compile Include="DynamicPinNodeBase.cs" />
     <Compile Include="JsonNetValueSystem.cs" />
     <Compile Include="ParseNode.cs" />
     <Compile Include="jsonpath-0.5.1.cs" />
