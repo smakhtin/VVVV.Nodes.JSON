@@ -111,7 +111,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Input String" visible="1" slicecount="15" values="|You know what i really want from you?|,|RT @DewaCintaa: Aku menangis karna terluka, aku merindukan karna aku menyayangi..|,|Difference between a good and a bad #meeting ? &lf;Bad meeting =Blabla + Beverages&lf;Good meeting =Blabla + Beverages + COOKIES&lf;;)|,|Ya un Gars dans Ma TL Cst Un Torro et un Mytho ! Crari &quot; Elle je la calcule plus blabla&quot; Alors qu&apos;il la Slurp Au max Sur Insta ! M D R.|,|RT @hartaaaa: Bersabarlah Allah selalu memberikan yang terbaik buat umatnya.|,|@ThreeUKSupport I haven&apos;t been able to send any texts for 2 days now|,|hahaha RT @DanielPujiNS Maaf kak RT @cherchres: Mau jadi jagoan? Pake tawuran? Puas kalo anak org udah meninggal? Itu yg dicari? &quot;|,|linsingers frage blieb eher unbeantwortet: &quot;herr (j) proll, war ihnen nicht selbst manchmal langweilig bei ihrem blabla in interviews?&quot; #omt|,|RT @ayuyuphan: 0o . npe di hapus ? bisa la, gampang sangat tu soal . hehe RT&quot;@vhia_blabla: @ayuyuphan ,ak apus ..mk na br 2 Hehe:) td is ...|,|Spit een real 16bar fuck ik doe dat homie laat dat blabla dats geen rap jullie verkankeren rap !!|,|Ngeri gue pas ketemu dia, terus dia gandeng cewek terus bilang &quot;Eh ini cewek gue,namanya blabla&quot; :&apos;). Taampun ngebayanginnya aja nyesek.|,|@Pervy_ASNana lupa, pokoknya bagian pertama kan jiyeon nyanyi. trus tar ada part2, dia juga lol yg ada chakamman.... blabla~ sexy love|,|parabensssss @igor_mende bobao, tudo de bom, muitassss felicidades, muita paz, gatinhas e blabla .. hehe s2|,|je vais marcher genre 40minutes sous la flotte merci Le lycee et maman ,pour deux heures de blabla sur la securite des personne|,|@AliouneBadara22 Pire que du blabla|" encoded="0">
+   <PIN pinname="Input String" visible="1" slicecount="15" encoded="0" values="|You know what i really want from you?|,|RT @DewaCintaa: Aku menangis karna terluka, aku merindukan karna aku menyayangi..|,|Difference between a good and a bad #meeting ? &lf;Bad meeting =Blabla + Beverages&lf;Good meeting =Blabla + Beverages + COOKIES&lf;;)|,|Ya un Gars dans Ma TL Cst Un Torro et un Mytho ! Crari &quot; Elle je la calcule plus blabla&quot; Alors qu&apos;il la Slurp Au max Sur Insta ! M D R.|,|RT @hartaaaa: Bersabarlah Allah selalu memberikan yang terbaik buat umatnya.|,|@ThreeUKSupport I haven&apos;t been able to send any texts for 2 days now|,|hahaha RT @DanielPujiNS Maaf kak RT @cherchres: Mau jadi jagoan? Pake tawuran? Puas kalo anak org udah meninggal? Itu yg dicari? &quot;|,|linsingers frage blieb eher unbeantwortet: &quot;herr (j) proll, war ihnen nicht selbst manchmal langweilig bei ihrem blabla in interviews?&quot; #omt|,|RT @ayuyuphan: 0o . npe di hapus ? bisa la, gampang sangat tu soal . hehe RT&quot;@vhia_blabla: @ayuyuphan ,ak apus ..mk na br 2 Hehe:) td is ...|,|Spit een real 16bar fuck ik doe dat homie laat dat blabla dats geen rap jullie verkankeren rap !!|,|Ngeri gue pas ketemu dia, terus dia gandeng cewek terus bilang &quot;Eh ini cewek gue,namanya blabla&quot; :&apos;). Taampun ngebayanginnya aja nyesek.|,|@Pervy_ASNana lupa, pokoknya bagian pertama kan jiyeon nyanyi. trus tar ada part2, dia juga lol yg ada chakamman.... blabla~ sexy love|,|parabensssss @igor_mende bobao, tudo de bom, muitassss felicidades, muita paz, gatinhas e blabla .. hehe s2|,|je vais marcher genre 40minutes sous la flotte merci Le lycee et maman ,pour deux heures de blabla sur la securite des personne|,|@AliouneBadara22 Pire que du blabla|">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="11">
@@ -127,9 +127,9 @@
    <LINK srcnodeid="11" srcpinname="Output String" dstnodeid="9" dstpinname="JSONPath Query">
    </LINK>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="12">
-   <BOUNDS type="Node" left="6435" top="5220" width="100" height="100">
+   <BOUNDS type="Node" left="6375" top="6780" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="6435" top="5220" width="9600" height="12315">
+   <BOUNDS type="Box" left="6375" top="6780" width="9600" height="12315">
    </BOUNDS>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -179,23 +179,23 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="JObject" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <NODE systemname="JSONPath (JSON)" filename="bin\Debug\JSONParse.dll" nodename="JSONPath (JSON)" componentmode="Hidden" id="23">
    <BOUNDS type="Node" left="6525" top="2460" width="1845" height="270">
    </BOUNDS>
-   <PIN pinname="Objects" visible="1">
+   <PIN pinname="Objects" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="JSONPath Query" visible="1" slicecount="1" encoded="0" values="VVVV">
+   <PIN pinname="JSONPath Query" visible="1" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Parse" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="23" dstpinname="Objects">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
    <BOUNDS type="Node" left="6510" top="3135" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="6510" top="3135" width="1890" height="1365">
+   <BOUNDS type="Box" left="6510" top="3135" width="2280" height="2505">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -209,9 +209,9 @@
    <LINK srcnodeid="23" srcpinname="Output" dstnodeid="24" dstpinname="Input String">
    </LINK>
    <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="25">
-   <BOUNDS type="Node" left="8310" top="1125" width="100" height="100">
+   <BOUNDS type="Node" left="8385" top="930" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8310" top="1125" width="990" height="870">
+   <BOUNDS type="Box" left="8385" top="930" width="990" height="870">
    </BOUNDS>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -222,8 +222,18 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <LINK srcnodeid="25" srcpinname="Output String" dstnodeid="23" dstpinname="JSONPath Query">
-   </LINK>
    <LINK srcnodeid="9" srcpinname="Output" dstnodeid="10" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="AddProperty (JSON)" filename="bin\Debug\JSONParse.dll" nodename="AddProperty (JSON)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="6525" top="810" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Property Names" slicecount="1" values="|1111 2222|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="23" dstpinname="Objects">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="22" dstpinname="JObject">
    </LINK>
    </PATCH>

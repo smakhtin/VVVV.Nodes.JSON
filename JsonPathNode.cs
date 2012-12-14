@@ -15,7 +15,7 @@ namespace VVVV.Nodes
 	public class JsonPathNode : IPluginEvaluate
 	{
 		[Input("Objects")]
-		private ISpread<JObject> FJObjectIn;
+		private Pin<JObject> FJObjectIn;
 
 		[Input("JSONPath Query")]
 		private ISpread<string> FQueryIn;
@@ -31,9 +31,16 @@ namespace VVVV.Nodes
 
 		public void Evaluate(int spreadMax)
 		{
-			FDataOut.SliceCount = spreadMax;
-			
 			FData.Clear();
+
+			if (FJObjectIn[0] == null)
+			{
+				FDataOut.SliceCount = 0;
+				return;
+			}
+
+			FDataOut.SliceCount = spreadMax;
+
 			for (int i = 0; i < spreadMax; i++)
 			{
 				try
